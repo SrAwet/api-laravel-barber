@@ -20,12 +20,19 @@ class BranchController extends Controller
     public function show($id)
     {
         $branch = Branch::findOrFail($id);
-        return response()->json(['data' => $branch]);
+        return $branch;
     }
 
     public function update(Request $request, string $id){
         $branch = Branch::findOrFail($id);
         $branch->update($request->all());
         return response()->json($branch,200);
+    }
+
+    public function getStylistsByBranch($id)
+    {
+        $branch = Branch::findOrFail($id);
+        $stylists = $branch->stylists; 
+        return $stylists;
     }
 }

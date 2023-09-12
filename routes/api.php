@@ -45,6 +45,7 @@ Route::get('/branch',[BranchController::class, 'index']);
 Route::post('/branch',[BranchController::class, 'store']);
 Route::get('/branch/{id}',[BranchController::class, 'show']);
 Route::put('/branch/{id}',[BranchController::class, 'update']);
+Route::get('/branch/{id}/stylists', [BranchController::class, 'getStylistsByBranch']);
 
 Route::get('/schedule',[ScheduleController::class, 'index']);
 Route::post('/schedule',[ScheduleController::class, 'store']);
@@ -60,6 +61,7 @@ Route::get('/stylist',[StylistController::class, 'index']);
 Route::post('/stylist',[StylistController::class, 'store']);
 Route::get('/stylist/{id}',[StylistController::class, 'show']);
 Route::put('/stylist/{id}',[StylistController::class, 'update']);
+Route::get('/stylist/{id}/schedules', [StylistController::class, 'schedules']);
 
 Route::get('/appointment',[AppointmentController::class, 'index']);
 Route::post('/appointment',[AppointmentController::class, 'store']);

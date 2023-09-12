@@ -19,4 +19,9 @@ class Stylist extends Model
     {
         return $this->hasMany(Appointment::class, 'id_stylist');
     }
+    
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class, 'id_stylist');
+    }
 }

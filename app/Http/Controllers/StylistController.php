@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stylist;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 
 class StylistController extends Controller
@@ -28,4 +29,13 @@ class StylistController extends Controller
         $stylist->update($request->all());
         return response()->json($stylist,200);
     }
+
+    public function schedules($id)
+    {
+        // Obtén los horarios del estilista con el ID proporcionado
+        $schedules = Schedule::where('id_stylist', $id)->get();
+        
+        return response()->json($schedules);
+    }
+
 }
